@@ -5,10 +5,44 @@ using Cinemachine;
 
 public class BallController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] CinemachineFreeLook look;
-    //private bool camera = false;
-    private void Update() {
-        look.enabled = Input.GetMouseButton(0);
+    [SerializeField] Collider col;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] float force;
+    bool shoot;
+    private void Update() 
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            //var ray = Camera.main.ViewportPointToRay(new Vector3(0,0,0));
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if(Physics.Raycast(ray, out var hitInfo))
+            {
+                if(hitInfo.collider == col)
+                {
+                    shoot = true;
+                }
+            }
+            
+        }
     }
+    private void FixedUpdate() 
+    {
+        if(shoot)
+        {
+            shoot = false;
+            Vector3 direction = Camera.main.transform.forward;
+            direction.y = 0;
+            rb.AddForce(direction * force, ForceMode.Impulse);
+        }
+        if(rb.velocity.sqrMagnitude < 0.01f && rb.velocity.sqrMagnitude > 0) 
+        {
+            rb.velocity = Vector3.zero;
+        }
+    }
+
+    public bool IsMove()
+    {
+        return rb.velocity != Vector3.zero;
+    }
+    
 }
