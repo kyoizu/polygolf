@@ -10,6 +10,9 @@ public class PlayManager : MonoBehaviour
     private void Update() 
     {
         var inputActive = Input.GetMouseButton(0) && ballCtrl.IsMove() == false;
-        camCtrl.SetInputActive(inputActive);
+        if(ballCtrl.ShootingMode == false)
+        {
+            camCtrl.SetInputActive(inputActive);
+        }
     }
 }
