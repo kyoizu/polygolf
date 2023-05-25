@@ -28,12 +28,14 @@ public class BallController : MonoBehaviour, IPointerDownHandler
     public bool ShootingMode { get => shootingMode; }
     public int ShootCount { get => shootCount; }
     public UnityEvent<int> onBallShooted = new UnityEvent<int>();
+    private Vector3 lastPos;
     private void Update() 
     {
         if(shootingMode)
         {
             if(shootingMode)
             {
+                lastPos = transform.position;
                 if(Input.GetMouseButtonDown(0))
                 {
                     aimLine.gameObject.SetActive(true);
@@ -112,5 +114,15 @@ public class BallController : MonoBehaviour, IPointerDownHandler
             return;
         }
         shootingMode = true;
+    }
+
+    private void OnCollisionEnter(Collision collision) 
+    {
+        if(collision.collider.tag == "OutOfBound")
+        {
+            transform.position = lastPos;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
     }
 }
