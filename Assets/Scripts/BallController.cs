@@ -14,7 +14,6 @@ public class BallController : MonoBehaviour, IPointerDownHandler
     [SerializeField] LineRenderer aimLine;
     [SerializeField] Text strokes;
     [SerializeField] Text finalStrokes;
-    //[SerializeField] Transform aimWorld;
     bool shoot;
     bool shootingMode;
     float forceFactor;
@@ -24,11 +23,13 @@ public class BallController : MonoBehaviour, IPointerDownHandler
 
     int shootCount;
     int pukul = 0;
+    public static int temp;
 
     public bool ShootingMode { get => shootingMode; }
     public int ShootCount { get => shootCount; }
     public UnityEvent<int> onBallShooted = new UnityEvent<int>();
     private Vector3 lastPos;
+
     private void Update() 
     {
         if(shootingMode)
@@ -73,8 +74,9 @@ public class BallController : MonoBehaviour, IPointerDownHandler
                     shootingMode = false;
                     aimLine.gameObject.SetActive(false);
                     pukul++;
+                    temp++;
                     strokes.text = "" + pukul;
-                    finalStrokes.text = strokes.text;
+                    finalStrokes.text = "" + temp;
                 }
             }
         }
@@ -124,5 +126,9 @@ public class BallController : MonoBehaviour, IPointerDownHandler
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
+    }
+
+    void Awake() {
+        //DontDestroyOnLoad(this.finalStrokes);
     }
 }

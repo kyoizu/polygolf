@@ -31,4 +31,9 @@ public class VolCtrl : MonoBehaviour
         volSlider.value = volValue;
         AudioListener.volume = volValue;
     }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 }
