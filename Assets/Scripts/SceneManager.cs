@@ -18,5 +18,13 @@ public class ChooseScene : MonoBehaviour
     {
         SceneManager.LoadScene("Map1");
     }
+    public void Map1Lv3()
+    {
+        SceneManager.LoadScene("Map2");
+    }
+    public void Map1Lv4()
+    {
+        SceneManager.LoadScene("Map3");
+    }
     // Start is called before the first frame update
 }
