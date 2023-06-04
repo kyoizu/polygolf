@@ -12,6 +12,7 @@ public class ChooseScene : MonoBehaviour
 
     public void MainMenu()
     {
+        BallController.temp = 0;
         SceneManager.LoadScene("MainMenu");
     }
     public void Map1Lv2()
