@@ -5,11 +5,12 @@ using UnityEngine;
 public class PowerUp : ScriptableObject
 {
     // Start is called before the first frame update
-    public GameObject ball;
+    public new string name;
+    public float cooldownTime;
+    public float activeTime;
 
-    // Update is called once per frame
-    void SpeedUp(GameObject terget)
+    public virtual void activate()
     {
-        //ball = GetComponent<BallController>();
+        
     }
 }

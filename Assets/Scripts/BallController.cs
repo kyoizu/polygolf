@@ -14,6 +14,7 @@ public class BallController : MonoBehaviour, IPointerDownHandler
     [SerializeField] LineRenderer aimLine;
     [SerializeField] Text strokes;
     [SerializeField] Text finalStrokes;
+    [SerializeField] Text scoreboard;
     bool shoot;
     bool shootingMode;
     float forceFactor;
@@ -23,6 +24,7 @@ public class BallController : MonoBehaviour, IPointerDownHandler
 
     int shootCount;
     int pukul = 0;
+    public static int kuranginPukul;
     public static int temp;
 
     public bool ShootingMode { get => shootingMode; }
@@ -55,7 +57,7 @@ public class BallController : MonoBehaviour, IPointerDownHandler
                     pointerDirection.z = 0;
                     pointerDirection.z *= Camera.main.aspect;
                     pointerDirection.z = Mathf.Clamp(pointerDirection.z, -0.5f, 0.5f);
-                    forceFactor = pointerDirection.magnitude * 2;
+                    forceFactor = pointerDirection.magnitude * 200;
 
                     var ballScreenPos = Camera.main.WorldToScreenPoint(this.transform.position);
                     var mouseScreenPos = Input.mousePosition;
@@ -74,9 +76,11 @@ public class BallController : MonoBehaviour, IPointerDownHandler
                     shootingMode = false;
                     aimLine.gameObject.SetActive(false);
                     pukul++;
+                    kuranginPukul = pukul;
                     temp++;
                     strokes.text = "" + pukul;
-                    finalStrokes.text = "" + temp;
+                    finalStrokes.text = strokes.text;
+                    scoreboard.text = "" + temp;
                 }
             }
         }
@@ -91,10 +95,10 @@ public class BallController : MonoBehaviour, IPointerDownHandler
             onBallShooted.Invoke(shootCount);
         }
 
-        if(rb.velocity.sqrMagnitude < 0.01f && rb.velocity.sqrMagnitude != 0)
+        if(rb.velocity.sqrMagnitude < 0.0001f && rb.velocity.sqrMagnitude != 0)
         {
             rb.velocity = Vector3.zero;
-            rb.useGravity = false;
+            //rb.useGravity = false;
         }
     }
 
