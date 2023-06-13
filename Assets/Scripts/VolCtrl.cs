@@ -5,35 +5,14 @@ using UnityEngine.UI;
 
 public class VolCtrl : MonoBehaviour
 {
-    [SerializeField] private Slider volSlider = null;
-    [SerializeField] private Text volText = null;
-
-    private void Start() 
+    public void MuteToggle(bool unmuted)
     {
-        LoadValues();
-    }
-
-    public void VolumeSlider(float volume)
-    {
-        volText.text = volume.ToString("0.0");
-    }
-
-    public void SaveVolume()
-    {
-        float volValue = volSlider.value;
-        PlayerPrefs.SetFloat("VolumeValue", volValue);
-        LoadValues();
-    }
-
-    private void LoadValues()
-    {
-        float volValue = PlayerPrefs.GetFloat("VolumeValue");
-        volSlider.value = volValue;
-        AudioListener.volume = volValue;
-    }
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
+        if(unmuted)
+        {
+            AudioListener.volume = 1;
+        }
+        else{
+            AudioListener.volume = 0;
+        }
     }
 }

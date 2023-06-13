@@ -8,6 +8,7 @@ public class ChooseScene : MonoBehaviour
     public void MainMenu()
     {
         BallController.temp = 0;
+        
         SceneManager.LoadScene("MainMenu");
     }
     public void Restart()
@@ -64,7 +65,7 @@ public class ChooseScene : MonoBehaviour
         SceneManager.LoadScene("MapC4");
     }
     public void ExitGame() {
-     Application.Quit();
+        Application.Quit();
     }
     // Start is called before the first frame update
 }
