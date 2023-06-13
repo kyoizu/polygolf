@@ -1167,6 +1167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LV4
       objectReference: {fileID: 0}
+    - target: {fileID: 6068642993908155381, guid: 03fe152d5f14f8e49b1da0601d23b7fa, type: 3}
+      propertyPath: m_TagString
+      value: OutOfBound
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03fe152d5f14f8e49b1da0601d23b7fa, type: 3}
 --- !u!1 &384917856
@@ -1921,6 +1925,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550005599}
   m_CullTransparentMesh: 1
+--- !u!1 &556139946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6068642993908155381, guid: 03fe152d5f14f8e49b1da0601d23b7fa, type: 3}
+  m_PrefabInstance: {fileID: 345327770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &556139948
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556139946}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &586124271
 GameObject:
   m_ObjectHideFlags: 0
@@ -6331,6 +6353,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 899030539326246688, guid: 206a5d0b5482afe4a9d0024b211ee8e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 899030539326246688, guid: 206a5d0b5482afe4a9d0024b211ee8e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 899030539566539014, guid: 206a5d0b5482afe4a9d0024b211ee8e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.7574699
+      objectReference: {fileID: 0}
     - target: {fileID: 1172075489281922338, guid: 206a5d0b5482afe4a9d0024b211ee8e8, type: 3}
       propertyPath: m_Name
       value: LV3
@@ -6383,6 +6417,14 @@ PrefabInstance:
       propertyPath: scoreBoard
       value: 
       objectReference: {fileID: 414413603}
+    - target: {fileID: 4727767999235838394, guid: 206a5d0b5482afe4a9d0024b211ee8e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727767999235838394, guid: 206a5d0b5482afe4a9d0024b211ee8e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 206a5d0b5482afe4a9d0024b211ee8e8, type: 3}
 --- !u!1001 &1324349026673179109
